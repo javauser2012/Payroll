@@ -2,21 +2,19 @@ package window;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Select extends JFrame {
     Font font = new Font("仿宋",Font.BOLD,20);
-    private JLabel jl_title,jl_selectFile,jl_description = null;
-    private JTextField jt_selectFile = null;
-    private JButton jb_selectFile,jb_start = null;
+    public JLabel jl_title,jl_selectFile,jl_description = null;
+    public JTextField jt_selectFile = null;
+    public JButton jb_selectFile,jb_start = null;
     public Select(){
         //设置窗口标题
         this.setTitle("工资条生成器");
         //调用窗体
         this.init();
         //调用按钮事件
-        this.registerListener();
+//        this.registerListener();
     }
     //窗体
     public void init(){
@@ -55,36 +53,36 @@ public class Select extends JFrame {
         this.setVisible(true);
     }
     //按钮事件
-    public void registerListener(){
-        jb_selectFile.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JFileChooser chooser = new JFileChooser();             //设置选择器
-                chooser.setMultiSelectionEnabled(false);             //设为多选
-                int returnVal = chooser.showOpenDialog(jb_selectFile);        //是否打开文件选择框
-                System.out.println("returnVal="+returnVal);
-
-                if (returnVal == JFileChooser.APPROVE_OPTION) {          //如果符合文件类型
-
-                    String filepath = chooser.getSelectedFile().getAbsolutePath();      //获取绝对路径
-                    System.out.println(filepath);
-                    jt_selectFile.setText(filepath);
-
-                    System.out.println("You chose to open this file: "+ chooser.getSelectedFile().getName());  //输出相对路径
-
-                }
-            }
-        });
-        jb_start.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String description = new String("<html><body>" +
-                        "" +
-                        "" +
-                        "" +
-                        "</body></html>");
-                jl_description.setText(description);
-            }
-        });
-    }
+//    public void registerListener(){
+//        jb_selectFile.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                JFileChooser chooser = new JFileChooser();             //设置选择器
+//                chooser.setMultiSelectionEnabled(false);             //设为多选
+//                int returnVal = chooser.showOpenDialog(jb_selectFile);        //是否打开文件选择框
+//                System.out.println("returnVal="+returnVal);
+//
+//                if (returnVal == JFileChooser.APPROVE_OPTION) {          //如果符合文件类型
+//
+//                    String filepath = chooser.getSelectedFile().getAbsolutePath();      //获取绝对路径
+//                    System.out.println(filepath);
+//                    jt_selectFile.setText(filepath);
+//
+//                    System.out.println("You chose to open this file: "+ chooser.getSelectedFile().getName());  //输出相对路径
+//
+//                }
+//            }
+//        });
+//        jb_start.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                String description = new String("<html><body>" +
+//                        "" +
+//                        "" +
+//                        "" +
+//                        "</body></html>");
+//                jl_description.setText(description);
+//            }
+//        });
+//    }
 }
